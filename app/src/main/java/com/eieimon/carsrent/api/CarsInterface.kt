@@ -30,4 +30,9 @@ interface CarsInterface {
     @GET("rent")
     fun getRent(): Call<RentResource>
 
+    @POST("check_auth")
+    fun postLogin(
+        @Query("email") Email: String,
+        @Query("password") Password : String
+    ): Call<LoginResource>
 }

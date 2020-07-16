@@ -1,9 +1,6 @@
 package com.eieimon.carsrent.api
 
-import com.eieimon.carsrent.model.CarResource
-import com.eieimon.carsrent.model.CityResource
-import com.eieimon.carsrent.model.PostRentResource
-import com.eieimon.carsrent.model.RentResource
+import com.eieimon.carsrent.model.*
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -47,5 +44,9 @@ class CarsApi {
 
     fun getCity(): Call<CityResource> {
         return carsInterface.getCity()
+    }
+
+    fun postLogin(Email: String, Password: String): Call<LoginResource> {
+        return carsInterface.postLogin(Email, Password)
     }
 }

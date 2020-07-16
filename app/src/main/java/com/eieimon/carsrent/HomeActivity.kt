@@ -1,6 +1,7 @@
 package com.eieimon.carsrent
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.Window
@@ -29,11 +30,14 @@ class HomeActivity : AppCompatActivity(){
                 actionBar.hide()
             }
 
+
+
             val btnStart = findViewById<Button>(R.id.start_button)
             btnStart.setOnClickListener{
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
             finish()
+
         }
 
     }

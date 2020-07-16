@@ -3,6 +3,8 @@ package com.eieimon.carsrent.ui.carrent
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
+import android.provider.SyncStateContract
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.IntegerRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.solver.widgets.Helper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +20,6 @@ import androidx.navigation.fragment.findNavController
 import com.eieimon.carsrent.R
 import com.eieimon.carsrent.model.City
 import com.eieimon.carsrent.ui.city.CityViewModel
-import kotlinx.android.synthetic.main.car_record.*
 import kotlinx.android.synthetic.main.fragment_car_rent.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -176,8 +178,9 @@ class CarRentFragment : Fragment() {
                 findNavController().navigate(record)
 
 
-            }else{
-                Toast.makeText(context, "fill data", Toast.LENGTH_LONG).show()
+            }else if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(phone.toString()) || TextUtils.isEmpty(address) || TextUtils.isEmpty(startDate) || TextUtils.isEmpty(endDate) || TextUtils.isEmpty(fromRoute.toString()) || TextUtils.isEmpty(toRoute.toString()) || TextUtils.isEmpty(price)){
+                return@setOnClickListener
+                Toast.makeText(context,"fill data", Toast.LENGTH_LONG).show()
             }
 
         }
