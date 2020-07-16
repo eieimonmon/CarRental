@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "512190062776",
+    "firebase_url": "https://carrental-33a63.firebaseio.com",
+    "project_id": "carrental-33a63",
+    "storage_bucket": "carrental-33a63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512190062776:android:bf15eb671b92e30f16d44d",
+        "android_client_info": {
+          "package_name": "com.eieimon.carsrent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512190062776-e27ht5c32dmpm2m6phe8sjos1ddf8ov5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMhbX-w7Euz9KBt9SbT-hZTsXzHCqpL3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512190062776-e27ht5c32dmpm2m6phe8sjos1ddf8ov5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

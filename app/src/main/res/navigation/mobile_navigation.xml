@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.eieimon.carsrent.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_carDetailInfoFragment"
+            app:destination="@id/carDetailInfoFragment" />
+        <argument
+            android:name="carCancel"
+            app:argType="string" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/carDetailInfoFragment"
+        android:name="com.eieimon.carsrent.ui.cardetail.CarDetailInfoFragment"
+        android:label="fragment_car_detail_info"
+        tools:layout="@layout/fragment_car_detail_info" >
+        <argument
+            android:name="CarDetail"
+            app:argType="com.eieimon.carsrent.model.Car"
+            />
+        <argument
+            android:name="CarName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_carDetailInfoFragment_to_carRentFragment"
+            app:destination="@id/carRentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carRentFragment"
+        android:name="com.eieimon.carsrent.ui.carrent.CarRentFragment"
+        android:label="CarRentFragment" >
+        <argument
+            android:name="carId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_carRentFragment_to_navigation_record"
+            app:destination="@id/navigation_record" />
+        <action
+            android:id="@+id/action_carRentFragment_to_recordFragment2"
+            app:destination="@id/recordFragment" />
+        <action
+            android:id="@+id/action_carRentFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.eieimon.carsrent.ui.record.RecordFragment"
+        android:label="RecordFragment" >
+        <argument
+            android:name="CarRecord"
+            app:argType="string" />
+    </fragment>
+</navigation>
