@@ -11,7 +11,9 @@ data class Rent(
     val id: Int,
     val start_date: String,
     val total_day: Any,
-    val total_price: Any,
+    val price: Any,
     val updated_at: Any,
-    val user_id: UserId
+    val user_id: UserId,
+    val city_from: City,
+    val city_to: City
 )

@@ -47,13 +47,13 @@
             app:destination="@id/navigation_record" />
         <action
             android:id="@+id/action_carRentFragment_to_recordFragment2"
-            app:destination="@id/recordFragment" />
+            app:destination="@id/navigation_record" />
         <action
             android:id="@+id/action_carRentFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
     <fragment
-        android:id="@+id/recordFragment"
+        android:id="@+id/navigation_record"
         android:name="com.eieimon.carsrent.ui.record.RecordFragment"
         android:label="RecordFragment" >
         <argument

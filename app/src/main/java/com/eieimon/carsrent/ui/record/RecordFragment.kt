@@ -1,9 +1,11 @@
 package com.eieimon.carsrent.ui.record
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +37,8 @@ class RecordFragment : Fragment() {
         recycler_car_record.adapter = recordAdapter
 
         observeRecord()
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Record Data"
     }
 
      fun observeRecord() {
@@ -42,6 +46,7 @@ class RecordFragment : Fragment() {
          recordViewModel.loadCarRecord()
          recordViewModel.getCarRecord().observe(viewLifecycleOwner, Observer {
              recycler_car_record.visibility = View.VISIBLE
+             Log.d("rents", it.toString())
              recordAdapter.update(it)
          })
          recordViewModel.getLoadError().observe(viewLifecycleOwner, Observer {

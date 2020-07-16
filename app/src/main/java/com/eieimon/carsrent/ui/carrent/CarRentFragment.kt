@@ -1,6 +1,7 @@
 package com.eieimon.carsrent.ui.carrent
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -166,11 +167,19 @@ class CarRentFragment : Fragment() {
             var price = etprice.text.toString()
             Log.d("user" ,fromRoute.toString())
 
-            observeRent(carRent, userName, phone, address, startDate, endDate, fromRoute, toRoute, price)
+            if( userName !=null && phone !=null && address !=null && startDate !=null && endDate !=null && fromRoute !=null && toRoute !=null && price !=null ){
 
-            var carRecord = " "
-            var record = CarRentFragmentDirections.actionCarRentFragmentToRecordFragment2(carRecord)
-            findNavController().navigate(record)
+                observeRent(carRent, userName, phone, address, startDate, endDate, fromRoute, toRoute, price)
+
+                var carRecord = " "
+                var record = CarRentFragmentDirections.actionCarRentFragmentToRecordFragment2(carRecord)
+                findNavController().navigate(record)
+
+
+            }else{
+                Toast.makeText(context, "fill data", Toast.LENGTH_LONG).show()
+            }
+
         }
 
     }
@@ -182,7 +191,6 @@ class CarRentFragment : Fragment() {
         carRentViewModel.postCarRent().observe(viewLifecycleOwner, Observer {
                 Toast.makeText(context,it,Toast.LENGTH_LONG).show()
         })
-
 
     }
 }

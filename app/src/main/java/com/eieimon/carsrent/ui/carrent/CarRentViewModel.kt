@@ -1,11 +1,13 @@
 package com.eieimon.carsrent.ui.carrent
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.eieimon.carsrent.api.CarsApi
-import com.eieimon.carsrent.model.PostRent
+
 import com.eieimon.carsrent.model.PostRentResource
 import com.eieimon.carsrent.model.Rent
 import com.eieimon.carsrent.model.RentResource

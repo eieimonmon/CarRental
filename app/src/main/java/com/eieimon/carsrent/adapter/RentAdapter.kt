@@ -33,15 +33,15 @@ class RentAdapter (var rentsList: List<Rent> = ArrayList()): RecyclerView.Adapte
             itemView.txt_car_no.text = rent.car.car_no
             itemView.txt_driver.text = rent.car.driver.name
             itemView.tv_name.text = rent.user_id.name
+            itemView.tv_seat.text = rent.car.capacity
             itemView.tv_phone.text = rent.user_id.phone_no
             itemView.tv_address.text = rent.user_id.address
             itemView.tv_start.text = rent.start_date
             itemView.tv_end.text = rent.end_date
-            if (rent.total_day !=null){
-                itemView.tv_date.text = rent.total_day.toString()
-            }
-            if (rent.total_price !=null){
-                itemView.tv_price.text = rent.total_price.toString()
+            itemView.tv_from.text = rent.city_from.name
+            itemView.tv_to.text = rent.city_to.name
+            if (rent.price !=null){
+                itemView.tv_price.text = rent.price.toString()
             }
 
         }

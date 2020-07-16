@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(){
                 R.id.navigation_home, R.id.navigation_record))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-       // navView.setOnNavigationItemSelectedListener (this)
+
     }
 
 //    override fun onBackPressed() {
