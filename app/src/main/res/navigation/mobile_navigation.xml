@@ -60,4 +60,5 @@
             android:name="CarRecord"
             app:argType="string" />
     </fragment>
+
 </navigation>

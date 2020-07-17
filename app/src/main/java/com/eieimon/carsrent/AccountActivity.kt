@@ -22,6 +22,16 @@ class AccountActivity: AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPreference =  getSharedPreferences("MyLogin", Context.MODE_PRIVATE)
+        var status = sharedPreference.getInt("status",0)
+        Log.d("userData", "$status")
+        if (status == 1)
+        {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -29,7 +39,7 @@ class AccountActivity: AppCompatActivity() {
         )
         super.onCreate(savedInstanceState)
         setContentView(R.layout.account_activity)
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences("MyLogin", Context.MODE_PRIVATE)
+
 
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -58,19 +68,25 @@ class AccountActivity: AppCompatActivity() {
 
             }else if (loginemail != null && loginpassword !=null){
                 loginViewModel = LoginViewModel()
-                 loginViewModel.loadLogin(Email = String() , Password = String())
+                 loginViewModel.loadLogin(loginemail, loginpassword)
                  loginViewModel.postLogin().observe(this, Observer {
 
-                     val editor:SharedPreferences.Editor =  sharedPreferences.edit()
-                     editor.putString("email",loginemail)
-                     editor.putString("password",loginpassword)
-                     editor.apply()
-                     editor.commit()
+                    if (it =="Login Successfully") {
+                        val editor: SharedPreferences.Editor = sharedPreference.edit()
+                        editor.putString("email", loginemail)
+                        editor.putString("password", loginpassword)
+                        editor.putInt("status", 1)
+                        editor.apply()
+                        editor.commit()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        Toast.makeText(applicationContext,it,Toast.LENGTH_LONG).show()
+                    }
 
                  })
-                 val intent = Intent(this, MainActivity::class.java)
-                 startActivity(intent)
-                 finish()
+
 
             }
         }
