@@ -23,7 +23,6 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:layout_marginRight">16dp</item>
-<!--        <item name="cardBackgroundColor">#b0bec5</item>-->
         <item name="cardCornerRadius">8dp</item>
         <item name="cardMaxElevation">8dp</item>
     </style>
@@ -51,5 +50,9 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginLeft">20dp</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

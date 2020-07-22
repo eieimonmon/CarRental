@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -37,6 +38,7 @@ class HomeFragment : Fragment(),CarsAdapter.ClickListener {
         recycler_car_show.adapter = carAdapter
         carAdapter.setOnClickListener(this)
         observeViewModel()
+
     }
 
     fun observeViewModel() {

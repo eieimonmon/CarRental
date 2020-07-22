@@ -5,14 +5,13 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
@@ -24,6 +23,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.eieimon.carsrent.ui.home.HomeFragment
 import com.eieimon.carsrent.ui.record.RecordFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(){
 
@@ -32,21 +32,16 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val navView: BottomNavigationView =findViewById(R.id.nav_view)
 
+         val appBarConfiguration = AppBarConfiguration(setOf(
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_record,R.id.navigation_account))
         val navController = findNavController(R.id.nav_host_fragment)
 
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_record))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-//        var loginOut = findViewById<View>(R.id.navigation_account)
-//
-//        loginOut.setOnClickListener {
-//
-//        }
 
     }
 
@@ -56,4 +51,5 @@ class MainActivity : AppCompatActivity(){
 //            startActivity(intent)
 //            finish()
 //    }
+
 }

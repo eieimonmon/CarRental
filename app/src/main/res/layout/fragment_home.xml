@@ -9,12 +9,13 @@
         tools:context=".ui.home.HomeFragment"
         >
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_car_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+           app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

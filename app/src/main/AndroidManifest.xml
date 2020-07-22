@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AccountActivity" />
-        <activity android:name=".CreateActivity" />
+        <activity android:name=".CreateAccountActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ForgetPassword" />
+<!--        <activity android:name=".ForgetPassword" />-->
 
     </application>
 

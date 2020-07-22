@@ -19,6 +19,7 @@
     </fragment>
 
 
+
     <fragment
         android:id="@+id/carDetailInfoFragment"
         android:name="com.eieimon.carsrent.ui.cardetail.CarDetailInfoFragment"
@@ -60,5 +61,16 @@
             android:name="CarRecord"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.eieimon.carsrent.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.eieimon.carsrent.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
 
 </navigation>

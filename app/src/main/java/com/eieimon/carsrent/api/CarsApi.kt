@@ -49,4 +49,8 @@ class CarsApi {
     fun postLogin(Email: String, Password: String): Call<LoginResource> {
         return carsInterface.postLogin(Email, Password)
     }
+
+    fun postCreateAccount(username: String, email: String, password: String, phone: Int, address: String): Call<AdminResource> {
+        return carsInterface.postUser(username, email, password, phone, address)
+    }
 }

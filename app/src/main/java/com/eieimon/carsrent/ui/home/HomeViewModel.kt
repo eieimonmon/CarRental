@@ -40,6 +40,7 @@ class HomeViewModel : ViewModel() {
             override fun onResponse(call: Call<CarResource>, response: Response<CarResource>) {
                 carShow.value = response.body()?.cars
 
+
             }
 
         })

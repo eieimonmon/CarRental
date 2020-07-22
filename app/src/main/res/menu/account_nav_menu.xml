@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/profile" android:checkableBehavior="none">
+        <item
+            android:id="@+id/action_profile"
+            android:icon="@drawable/ic_baseline_people_24"
+            android:title="My Profile"
+            app:actionProviderClass="android.widget.ShareActionProvider" />
+    </group>
+
+    <group android:id="@+id/share" android:checkableBehavior="none">
+        <item
+            android:id="@+id/action_share"
+            android:icon="@drawable/share"
+            android:title="Share" />
+    </group>
+
+    <group android:id="@+id/about" android:checkableBehavior="none">
+        <item
+            android:id="@+id/action_about"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="About Us" />
+    </group>
+
+    <group android:id="@+id/logOut" android:checkableBehavior="none"
+        tools:ignore="DuplicateIds">
+        <item
+            android:id="@+id/logOut"
+            android:icon="@drawable/logout"
+            android:title="LogOut" />
+    </group>
+</menu>

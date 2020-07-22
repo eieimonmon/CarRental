@@ -35,4 +35,13 @@ interface CarsInterface {
         @Query("email") Email: String,
         @Query("password") Password : String
     ): Call<LoginResource>
+
+    @POST("user")
+    fun postUser(
+        @Query("name") username: String,
+        @Query("email") email: String,
+        @Query("password") password: String,
+        @Query("phone_no") phone: Int,
+        @Query("address") address: String
+    ): Call<AdminResource>
 }

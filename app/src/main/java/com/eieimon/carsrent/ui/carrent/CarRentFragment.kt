@@ -121,16 +121,16 @@ class CarRentFragment : Fragment() {
 
 
 
-            val etStart = view.findViewById<TextView>(R.id.etStart)
+            val btnStart = view.findViewById<ImageButton>(R.id.img_btn_start)
 
-            val etEnd = view.findViewById<TextView>(R.id.etEnd)
+            val btnEnd = view.findViewById<ImageButton>(R.id.img_btn_end)
 
             val calendar = Calendar.getInstance()
             val y = calendar.get(Calendar.YEAR)
             val m = calendar.get(Calendar.MONTH)
             val d = calendar.get(Calendar.DAY_OF_MONTH)
 
-           etStart.setOnClickListener {
+           btnStart.setOnClickListener {
                 val datepickerdialog= DatePickerDialog(it.context, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 
                     // Display Selected date in textbox
@@ -140,7 +140,7 @@ class CarRentFragment : Fragment() {
 
                 datepickerdialog.show()
             }
-            etEnd.setOnClickListener {
+            btnEnd.setOnClickListener {
                 val datepickerdialog= DatePickerDialog(it.context, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
 
                     // Display Selected date in textbox
@@ -173,9 +173,9 @@ class CarRentFragment : Fragment() {
 
                 observeRent(carRent, userName, phone, address, startDate, endDate, fromRoute, toRoute, price)
 
-                var carRecord = " "
-                var record = CarRentFragmentDirections.actionCarRentFragmentToRecordFragment2(carRecord)
-                findNavController().navigate(record)
+//                var carRecord = " "
+//                var record = CarRentFragmentDirections.actionCarRentFragmentToRecordFragment2(carRecord)
+//                findNavController().navigate(record)
 
 
             }else if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(phone.toString()) || TextUtils.isEmpty(address) || TextUtils.isEmpty(startDate) || TextUtils.isEmpty(endDate) || TextUtils.isEmpty(fromRoute.toString()) || TextUtils.isEmpty(toRoute.toString()) || TextUtils.isEmpty(price)){

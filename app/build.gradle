@@ -72,4 +72,7 @@ dependencies {
     //firebase
     implementation 'com.google.firebase:firebase-analytics:17.4.4'
 
+    //circleimageview
+    implementation 'com.github.androdocs:Android-Circle-ImageView:0.1.0'
+
 }

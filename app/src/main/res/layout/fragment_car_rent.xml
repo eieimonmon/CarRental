@@ -119,12 +119,20 @@
 
                 <EditText
                     android:id="@+id/etStart"
-                    android:layout_width="match_parent"
+                    android:layout_width="240dp"
                     android:layout_height="40dp"
                     android:inputType="text"
                     style="@style/rent_edit"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvstart"/>
+                <ImageButton
+                    android:id="@+id/img_btn_start"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/date"
+                    app:layout_constraintTop_toBottomOf="@+id/tvstart"
+                    app:layout_constraintLeft_toRightOf="@+id/etStart"/>
 
                 <TextView
                     android:id="@+id/tvend"
@@ -136,12 +144,20 @@
                     app:layout_constraintLeft_toLeftOf="parent"/>
                 <EditText
                     android:id="@+id/etEnd"
-                    android:layout_width="match_parent"
+                    android:layout_width="240dp"
                     android:layout_height="40dp"
                     android:inputType="text"
                     style="@style/rent_edit"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvend"/>
+            <ImageButton
+                android:id="@+id/img_btn_end"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/date"
+                app:layout_constraintTop_toBottomOf="@+id/tvend"
+                app:layout_constraintLeft_toRightOf="@+id/etEnd"/>
 
                 <TextView
                     android:id="@+id/tvprice"

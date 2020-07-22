@@ -86,9 +86,13 @@ class AccountActivity: AppCompatActivity() {
                     }
 
                  })
-
-
             }
+        }
+        val btnCreate = findViewById<Button>(R.id.btnCreate)
+        btnCreate.setOnClickListener{
+            val intent = Intent(this, CreateAccountActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
 
