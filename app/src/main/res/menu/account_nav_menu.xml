@@ -9,7 +9,7 @@
             android:id="@+id/action_profile"
             android:icon="@drawable/ic_baseline_people_24"
             android:title="My Profile"
-            app:actionProviderClass="android.widget.ShareActionProvider" />
+            />
     </group>
 
     <group android:id="@+id/share" android:checkableBehavior="none">

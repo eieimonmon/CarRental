@@ -1,18 +1,18 @@
 package com.eieimon.carsrent.ui.carrent
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Context
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.IntegerRes
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.solver.widgets.Helper
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -57,6 +57,7 @@ class CarRentFragment : Fragment() {
         return view
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -150,6 +151,25 @@ class CarRentFragment : Fragment() {
                 datepickerdialog.show()
             }
 
+        val time = view.findViewById<ImageButton>(R.id.img_btn_time)
+
+        val mHour = calendar[Calendar.HOUR_OF_DAY]
+        val mMinute = calendar[Calendar.MINUTE]
+        time.setOnClickListener {
+
+
+            // Launch Time Picker Dialog
+
+            // Launch Time Picker Dialog
+            val timePickerDialog = TimePickerDialog(it.context, OnTimeSetListener { view, hourOfDay, minute ->
+                etTime.setText("$hourOfDay:$minute") },
+                mHour,
+                mMinute,
+                false
+            )
+            timePickerDialog.show()
+        }
+
             val btnCancel = view.findViewById<Button>(R.id.btnCancel)
             btnCancel.setOnClickListener {
                 var carCancel = " "
@@ -166,31 +186,45 @@ class CarRentFragment : Fragment() {
             var endDate = etEnd.text.toString()
             var fromRoute = cityFromId.toString().toInt()
             var toRoute = cityToId.toString().toInt()
-            var price = etprice.text.toString()
+//            var price = etprice.text.toString()
             Log.d("user" ,fromRoute.toString())
 
-            if( userName !=null && phone !=null && address !=null && startDate !=null && endDate !=null && fromRoute !=null && toRoute !=null && price !=null ){
+            if( userName !=null && phone !=null && address !=null && startDate !=null && endDate !=null && fromRoute !=null && toRoute !=null /*&& price !=null */){
 
-                observeRent(carRent, userName, phone, address, startDate, endDate, fromRoute, toRoute, price)
+                observeRent(carRent, userName, phone, address, startDate, endDate, fromRoute, toRoute/*, price*/)
 
 //                var carRecord = " "
 //                var record = CarRentFragmentDirections.actionCarRentFragmentToRecordFragment2(carRecord)
 //                findNavController().navigate(record)
 
 
-            }else if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(phone.toString()) || TextUtils.isEmpty(address) || TextUtils.isEmpty(startDate) || TextUtils.isEmpty(endDate) || TextUtils.isEmpty(fromRoute.toString()) || TextUtils.isEmpty(toRoute.toString()) || TextUtils.isEmpty(price)){
+            }else if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(phone.toString()) || TextUtils.isEmpty(address) || TextUtils.isEmpty(startDate) || TextUtils.isEmpty(endDate) || TextUtils.isEmpty(fromRoute.toString()) || TextUtils.isEmpty(toRoute.toString()) /*|| TextUtils.isEmpty(price)*/){
                 return@setOnClickListener
                 Toast.makeText(context,"fill data", Toast.LENGTH_LONG).show()
             }
 
         }
 
+        val callBack: OnBackPressedCallback =
+
+            object : OnBackPressedCallback(true /* enabled by default */) {
+
+                override fun handleOnBackPressed() {
+
+                    findNavController().popBackStack(R.id.carDetailInfoFragment, false)
+
+                    // Handle the back button event
+
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callBack)
+
     }
 
 
-    fun observeRent(carId:Int,name:String, phone_no:Int, address:String, startDate:String, endDate:String, city_from_id:Int, city_to_id: Int,price:String){
+    fun observeRent(carId:Int,name:String, phone_no:Int, address:String, startDate:String, endDate:String, city_from_id:Int, city_to_id: Int/*,price:String*/){
 
-        carRentViewModel.loadCarRent(carId,name,phone_no,address,startDate,endDate,city_from_id,city_to_id,price)
+        carRentViewModel.loadCarRent(carId,name,phone_no,address,startDate,endDate,city_from_id,city_to_id/*,price*/)
         carRentViewModel.postCarRent().observe(viewLifecycleOwner, Observer {
                 Toast.makeText(context,it,Toast.LENGTH_LONG).show()
         })

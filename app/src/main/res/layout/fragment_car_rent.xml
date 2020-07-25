@@ -159,23 +159,50 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvend"
                 app:layout_constraintLeft_toRightOf="@+id/etEnd"/>
 
-                <TextView
-                    android:id="@+id/tvprice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Price"
-                    style="@style/textstyle"
-                    app:layout_constraintTop_toBottomOf="@id/etEnd"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Leave Time"
+                style="@style/textstyle"
+                app:layout_constraintTop_toBottomOf="@id/etEnd"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-                <EditText
-                    android:id="@+id/etprice"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:inputType="number"
-                    style="@style/rent_edit"
-                    app:layout_constraintTop_toBottomOf="@id/tvprice"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+            <EditText
+                android:id="@+id/etTime"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                style="@style/rent_edit"
+                app:layout_constraintTop_toBottomOf="@id/tvTime"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+            <ImageButton
+                android:id="@+id/img_btn_time"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/time"
+                app:layout_constraintTop_toBottomOf="@+id/tvTime"
+                app:layout_constraintLeft_toRightOf="@+id/etTime"/>
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tvprice"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Price"-->
+<!--                    style="@style/textstyle"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/etEnd"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"/>-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/etprice"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:inputType="number"-->
+<!--                    style="@style/rent_edit"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/tvprice"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"/>-->
 
 
             <Button
@@ -187,7 +214,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button"
-                app:layout_constraintTop_toBottomOf="@id/etprice"
+                app:layout_constraintTop_toBottomOf="@id/etTime"
                 app:layout_constraintLeft_toLeftOf="parent"/>
             <Button
                 android:id="@+id/btnRent"
@@ -199,7 +226,7 @@
                 android:layout_marginRight="20dp"
                 android:text="Rent"
                 android:background="@drawable/button"
-                app:layout_constraintTop_toBottomOf="@id/etprice"
+                app:layout_constraintTop_toBottomOf="@id/etTime"
                 app:layout_constraintLeft_toRightOf="@id/btnCancel"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

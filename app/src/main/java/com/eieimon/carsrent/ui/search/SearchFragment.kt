@@ -17,7 +17,7 @@ import com.eieimon.carsrent.ui.home.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_search.*
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), CarsAdapter.ClickListener{
 
     private lateinit var carViewModel: HomeViewModel
     private lateinit var carAdapter: CarsAdapter
@@ -39,21 +39,37 @@ class SearchFragment : Fragment() {
         search_recycler.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
         carAdapter = CarsAdapter()
         search_recycler.adapter = carAdapter
-//        carAdapter.setOnClickListener(this)
+
+        carAdapter.setOnClickListener(this)
 
         val btnSearch = view.findViewById<ImageButton>(R.id.img_btn_search)
         btnSearch.setOnClickListener{
             val search = etSearch.text.toString()
 
-
+            observeViewModel()
         }
 
     }
 
+    fun observeViewModel() {
+        var carShowViewModel: HomeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        carShowViewModel.loadCarShow()
+        carShowViewModel.getCarShow().observe(viewLifecycleOwner, Observer {
+            search_recycler.visibility = View.VISIBLE
+            carAdapter.update(it)
 
-//    override fun onClick(cars: Car) {
-//        var direction = HomeFragmentDirections.actionNavigationHomeToCarDetailInfoFragment(cars,cars.category.name)
-//        findNavController().navigate(direction)
-//    }
+        })
+        carShowViewModel.getLoadError().observe(viewLifecycleOwner, Observer {
+            search_recycler.visibility = View.GONE
+
+        })
+
+    }
+
+    override fun onClick(cars: Car) {
+        var direction = SearchFragmentDirections.actionNavigationSearchToCarDetailInfoFragment(cars,cars.category.name)
+        findNavController().navigate(direction)
+    }
+
 
 }

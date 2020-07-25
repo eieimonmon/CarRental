@@ -1,11 +1,12 @@
 package com.eieimon.carsrent.ui.cardetail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -43,6 +44,19 @@ class CarDetailInfoFragment : Fragment() {
         }
 
 
+        val callBack: OnBackPressedCallback =
+
+            object : OnBackPressedCallback(true /* enabled by default */) {
+
+                override fun handleOnBackPressed() {
+
+                    findNavController().popBackStack(R.id.navigation_home, false)
+
+                    // Handle the back button event
+
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callBack)
     }
 
     private fun observeDetail(carDetail: Car) {
@@ -65,6 +79,8 @@ class CarDetailInfoFragment : Fragment() {
     }
 
 }
+
+
 
 
 

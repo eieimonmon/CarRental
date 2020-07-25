@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.eieimon.carsrent.R.id.nav_fragment
+
 import com.google.android.material.navigation.NavigationView
 
 
@@ -42,7 +42,13 @@ class AccountFragment : Fragment() {
 //            R.id.nav_profile, R.id.nav_share, R.id.nav_about_us), drawerLayout)
 //        setupActionBarWithNavController(navViewController, appBarConfiguration)
 //        navView.setupWithNavController(navViewController)
-    }
+
+//        val navController = findNavController(R.id.nav_host_fragment)
+//        viewfindViewById<NavigationView>(R.id.nav_view)
+//            .setupWithNavController(navController)
+     }
+
+
 
 
 }

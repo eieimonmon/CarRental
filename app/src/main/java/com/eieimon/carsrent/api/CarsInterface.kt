@@ -22,8 +22,8 @@ interface CarsInterface {
         @Query("start_date" ) startDate:String,
         @Query("end_date" ) endDate:String,
         @Query("city_from_id" ) cityFromId:Int,
-        @Query("city_to_id" ) cityToId:Int,
-        @Query("price" ) price:String
+        @Query("city_to_id" ) cityToId:Int
+//        @Query("price" ) price:String
 
     ): Call<PostRentResource>
 
@@ -44,4 +44,9 @@ interface CarsInterface {
         @Query("phone_no") phone: Int,
         @Query("address") address: String
     ): Call<AdminResource>
+
+//    @POST("car")
+//    fun postCar(
+//        @Query("capacity")
+//    ): Call<CarResource>
 }

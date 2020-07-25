@@ -35,6 +35,10 @@
         <action
             android:id="@+id/action_carDetailInfoFragment_to_carRentFragment"
             app:destination="@id/carRentFragment" />
+<!--        <argument-->
+<!--            android:name="SearchCapacity"-->
+<!--            app:argType="string" />-->
+
     </fragment>
     <fragment
         android:id="@+id/carRentFragment"
@@ -66,7 +70,11 @@
         android:id="@+id/navigation_search"
         android:name="com.eieimon.carsrent.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_carDetailInfoFragment"
+            app:destination="@id/carDetailInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.eieimon.carsrent.AccountFragment"

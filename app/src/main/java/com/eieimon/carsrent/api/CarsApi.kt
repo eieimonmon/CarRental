@@ -34,8 +34,8 @@ class CarsApi {
         return carsInterface.getCars()
     }
 
-    fun postCarRent(carId:Int,name:String, phone_no:Int, address:String, startDate:String, endDate:String, city_from_id:Int, city_to_id: Int,price:String): Call<PostRentResource> {
-        return carsInterface.postRent(carId,name,phone_no,address,startDate,endDate,city_from_id,city_to_id,price)
+    fun postCarRent(carId:Int,name:String, phone_no:Int, address:String, startDate:String, endDate:String, city_from_id:Int, city_to_id: Int/*,price:String*/): Call<PostRentResource> {
+        return carsInterface.postRent(carId,name,phone_no,address,startDate,endDate,city_from_id,city_to_id/*,price*/)
     }
 
     fun getCarRecord(): Call<RentResource> {
