@@ -13,7 +13,7 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name"
-            >
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,8 +23,7 @@
         <activity android:name=".AccountActivity" />
         <activity android:name=".CreateAccountActivity" />
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:name=".MainActivity" />
 <!--        <activity android:name=".ForgetPassword" />-->
 
     </application>

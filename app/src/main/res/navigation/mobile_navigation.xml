@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.eieimon.carsrent.AccountFragment"
+        android:name="com.eieimon.carsrent.fragment.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
 
