@@ -1,17 +1,14 @@
 package com.eieimon.carsrent.fragment
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.eieimon.carsrent.R
+import com.eieimon.carsrent.fragment.AccountFragmentDirections
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 
@@ -31,19 +28,65 @@ class AccountFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 
-        val navView = view.findViewById<NavigationView>(R.id.nav_view)
+        val navigationView = view.findViewById<NavigationView>(R.id.nav_view)
 
-       val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_profile, R.id.nav_share, R.id.nav_about_us,R.id.nav_logout))
+        navigationView.setNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            val id = item.itemId
+            if (id == R.id.action_profile) {
+                val profile =" "
+                val directProfile =
+                    AccountFragmentDirections.actionNavigationAccountToProfileFragment(
+                        profile
+                    )
+                findNavController().navigate(directProfile)
 
-        val navController = findNavController( R.id.nav_host_fragment)
+            } else if (id == R.id.action_about) {
+                val about =""
+                val directAbout =AccountFragmentDirections.actionNavigationAccountToAboutUsFragment(about)
+                findNavController().navigate(directAbout)
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+            } else if (id == R.id.action_share) {
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                    type = "text/plain"
+                }
+
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+
+
+            } else if (id == R.id.action_logOut) {
+                val logout =""
+                val directLogout =
+                    AccountFragmentDirections.actionNavigationAccountToAccountActivity(
+                        logout
+                    )
+                findNavController().navigate(directLogout)
+
+            }
+            true
+        })
+
+    }
+    fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        //getMenuInflater().inflate(R.menu.home, menu);
+        return true
     }
 
-     fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        /*if (id == R.id.action_settings) {
+            return true;
+        }*/return super.onOptionsItemSelected(item)
     }
 }
+
+private fun NavigationView.setNavigationItemSelectedListener(onNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener) {
+
+
+}
+
+

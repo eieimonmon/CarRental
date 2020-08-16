@@ -79,6 +79,41 @@
         android:id="@+id/navigation_account"
         android:name="com.eieimon.carsrent.fragment.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_accountActivity"
+            app:destination="@id/accountActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.eieimon.carsrent.fragment.ProfileFragment"
+        android:label="ProfileFragment" >
+        <argument
+            android:name="ProfileName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.eieimon.carsrent.fragment.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" >
+        <argument
+            android:name="AboutUs"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/accountActivity"
+        android:name="com.eieimon.carsrent.AccountActivity"
+        android:label="AccountActivity" >
+        <argument
+            android:name="activity"
+            app:argType="string" />
+    </activity>
 
 </navigation>

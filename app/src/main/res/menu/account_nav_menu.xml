@@ -29,7 +29,7 @@
     <group android:id="@+id/logOut" android:checkableBehavior="none"
         tools:ignore="DuplicateIds">
         <item
-            android:id="@+id/logOut"
+            android:id="@+id/action_logOut"
             android:icon="@drawable/logout"
             android:title="LogOut" />
     </group>
