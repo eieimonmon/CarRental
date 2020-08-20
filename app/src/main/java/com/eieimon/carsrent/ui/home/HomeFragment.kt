@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(),CarsAdapter.ClickListener {
 
-    private lateinit var homeViewModel: HomeViewModel
+//    private lateinit var homeViewModel: HomeViewModel
     private lateinit var carAdapter: CarsAdapter
 
     override fun onCreateView(
@@ -42,7 +42,7 @@ class HomeFragment : Fragment(),CarsAdapter.ClickListener {
     }
 
     fun observeViewModel() {
-        var carShowViewModel: HomeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        val carShowViewModel: HomeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         carShowViewModel.loadCarShow()
         carShowViewModel.getCarShow().observe(viewLifecycleOwner, Observer {
             recycler_car_show.visibility = View.VISIBLE

@@ -1,16 +1,18 @@
 package com.eieimon.carsrent.fragment
 
-import android.R.drawable
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.eieimon.carsrent.R
 
 
 class ProfileFragment : Fragment() {
+
+    private val TAG = ProfileFragment::class.java.simpleName
 
 
 
@@ -25,9 +27,16 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity).supportActionBar?.title=" Profile"
 
+        val name = view.findViewById<View>(R.id.user_name) as TextView
+        val email = view.findViewById<View>(R.id.user_email) as TextView
+        val phone = view.findViewById<View>(R.id.user_phone) as TextView
+        val address = view.findViewById<View>(R.id.user_address) as TextView
 
         
     }
+    fun ProfileFragment() {}
+
 
 }
